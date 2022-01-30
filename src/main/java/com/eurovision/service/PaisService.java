@@ -12,4 +12,9 @@ public interface PaisService {
 	
 	public List<Pais> findAllPaises();
 
+	public void guardarPais(Pais pais);
+	
+	public void deletePais(Pais pais);
+	
+	public void alternarEstado(Pais pais);
 }

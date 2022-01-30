@@ -9,29 +9,53 @@ body {
     grid-template-areas: "header header"
                         "nav main"
                         "footer footer";
-    grid-template-columns: 10vw 90vw;
+    grid-template-columns: 20vw 80vw;
     grid-template-rows: 10vh max(80vh,100%) 10vh;
-}
-
-body.expandido {
-    grid-template-columns: 30vw 70vw;
 }
 
 header {
     grid-area: header;
-    background-color: lime;
     display:flex;
     align-items: center;
+    color: white;
+    background-color: steelblue;
 }
+header a, header a:hover{
+    text-decoration: none;
+	color: white;
+}
+
 aside {
     grid-area: nav;
-    background-color: lightskyblue;
+    background-color: steelblue;
+}
+.menu-lateral a {
+	text-decoration: none;
+	color: #333;
+}
+.menu-lateral .menu-activo {
+	background-color: lightgray;
+}
+.menu-lateral .menu-activo a {
+		color: white;
 }
 main {
     grid-area: main;
-    background-color: red;
+    background-color: lightskyblue;
 }
 footer {
     grid-area: footer;
     background-color: purple;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/**Cabecera tabla listado con iconos**/
+.cabecera-con-iconos {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-bottom: 1px solid lightgray
 }

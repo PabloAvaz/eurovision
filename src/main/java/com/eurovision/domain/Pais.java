@@ -13,7 +13,6 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name="PAIS")
 @Data
-@NoArgsConstructor
 public class Pais {
 	
 	@Id
@@ -27,8 +26,12 @@ public class Pais {
 	@Column(name = "PA_ACTIVO", columnDefinition = "BOOL DEFAULT TRUE", nullable = false)
 	Boolean activo;
 
+	public Pais() {
+		this.activo = Boolean.TRUE;
+	}
+	
 	public Pais(String nombre) {
-		this.activo = true;
+		this();
 		this.nombre = nombre;
 	}
 

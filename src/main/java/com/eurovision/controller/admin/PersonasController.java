@@ -1,4 +1,4 @@
-package com.eurovision.controller;
+package com.eurovision.controller.admin;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,7 +13,7 @@ import com.eurovision.domain.Persona;
 import com.eurovision.service.PersonaService;
 
 @Controller
-@RequestMapping("/personas")
+@RequestMapping("/admin/personas")
 public class PersonasController {
 	
 	@Autowired
@@ -38,16 +38,22 @@ public class PersonasController {
 		return "bien";
 	}
 	
+	@GetMapping("/edit/{id}")
+	public String editPersona(@PathVariable Integer id, Model model) {
+		model.addAttribute("persona", personaServiceImpl.findById(id));
+			return "personas/persona-form";
+	}
+	
 	@GetMapping("/delete/{id}")
 	public String deletePersona(Persona persona, Model model) {
 		personaServiceImpl.deletePersona(persona);
-		return "redirect:/personas/";
+		return "redirect:/admin/personas/";
 	}
 	
 	@GetMapping("/alternarEstado/{id}")
 	public String alternarEstado(Persona persona, Model model) {
 		personaServiceImpl.alternarEstado(persona);
-		return "redirect:/personas/";
+		return "redirect:/admin/personas/";
 	}
 	
 }

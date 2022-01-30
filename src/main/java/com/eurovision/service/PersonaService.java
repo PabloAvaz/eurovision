@@ -10,6 +10,8 @@ public interface PersonaService {
 	
 	public List<Persona> findAllPersonas();
 	
+	public Persona findById(Integer id);
+	
 	public void guardarPersona(Persona persona);
 	
 	public void deletePersona(Persona persona);

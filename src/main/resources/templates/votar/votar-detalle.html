@@ -10,7 +10,6 @@
 
     <aside class="menu">
     	<nav th:replace="~{fragments/menu-lateral :: menu-lateral}"></nav>
-        <button id="btn">XD</button>
     </aside>
     
     <main>
@@ -26,6 +25,19 @@
 			   	<td th:text="*{puntos}"></td>
 			</tr>
 		</table>
+		
+		<form method="post" th:action="@{/accion/votar/guardarVoto}" th:object="${votoUsuario}">
+			<label>Persona</label>
+			<input type="number" th:field="*{persona.id}" value="1">
+			
+			<label>Pais</label>
+			<input type="number" th:field="*{pais.id}" value="1">
+			
+			<label>Puntos</label>
+			<input type="number" th:field="*{puntos}" value="0">
+			
+			<button>Enviar</button>
+		</form>
     </main>
     
     <footer th:replace="~{fragments/footer :: footer}"></footer>

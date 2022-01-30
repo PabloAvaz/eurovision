@@ -6,42 +6,46 @@
 </head>
 
 <body>
-   <nav th:fragment="menu-lateral">
-	<div class="accordion" id="acordeon-menu-lateral">
+   <nav th:fragment="menu-lateral" class="menu-lateral" th:with="url=${#httpServletRequest.requestURI}">
+   
+	<div class="accordion" id="acordeon-administracion">
 	  <div class="card">
 	    <div class="card-header" id="headingAdmin">
 	      <h2 class="mb-0">
-	        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseAdmin" aria-expanded="true" aria-controls="collapseAdmin">
+	        <a class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseAdmin" aria-controls="collapseAdmin">
 	          Administracion
-	        </button>
+	        </a>
 	      </h2>
 	    </div>
 	
-	    <div id="collapseAdmin" class="collapse show" aria-labelledby="headingAdmin" data-parent="#acordeon-menu-lateral">
-	      <div class="card-body">
-	        <a th:href="@{/personas/}">Personas</a>
+	    <div id="collapseAdmin" class="collapse" th:classAppend="${url.contains('admin') ? 'show' : ''}" aria-labelledby="headingAdmin" data-parent="#acordeon-administracion">
+	      <div class="card-body" th:classAppend="${url.contains('/admin/personas') ? 'menu-activo' : ''}">
+	        <a th:href="@{/admin/personas/}">Personas</a>
 	      </div>
-	      <div class="card-body">
-	         <a th:href="@{/paises/}">Paises</a>
+	      <div class="card-body" th:classAppend="${url.contains('/admin/paises') ? 'menu-activo' : ''}">
+	         <a th:href="@{/admin/paises/}">Paises</a>
 	      </div>
 	    </div>
 	  </div>
-	  <!-- FIN ACORDEON 1 -->
+	</div>
+	
+	<div class="accordion" id="acordeon-acciones">
 	  <div class="card">
 	    <div class="card-header" id="headingAcciones">
 	      <h2 class="mb-0">
-	        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseAcciones" aria-expanded="false" aria-controls="collapseAcciones">
+	        <a class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseAcciones" aria-controls="collapseAcciones">
 	          Acciones
-	        </button>
+	        </a>
 	      </h2>
 	    </div>
-	    <!-- FIN ACORDEON 2 -->
-	    <div id="collapseAcciones" class="collapse" aria-labelledby="headingAcciones" data-parent="#acordeon-menu-lateral">
-	      <div class="card-body">
-	         <a th:href="@{/votar/}">Votar</a>
+	    
+	    <div id="collapseAcciones" class="collapse" th:classAppend="${url.contains('accion') ? 'show' : ''}" aria-labelledby="headingAcciones" data-parent="#acordeon-acciones">
+	      <div class="card-body" th:classAppend="${url.contains('/accion/votar') ? 'menu-activo' : ''}">
+	         <a th:href="@{/accion/votar/}">Votar</a>
 	      </div>
 	    </div>
 	  </div>
+	  <!-- FIN ACORDEON 2 -->
 	</div>
    </nav>
 </body>

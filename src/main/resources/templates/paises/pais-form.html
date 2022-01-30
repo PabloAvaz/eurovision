@@ -5,18 +5,12 @@
 <head>
 </head>
 <body>
-	<form th:fragment="persona-form" method="post" th:action="@{/admin/personas/create}" th:object="${persona}">
-		<input type="hidden" th:field="*{id}"> 
-		<div>
-			<label for="apodo">Apodo</label>
-			<input th:field="*{apodo}">
-		</div>
-		
+	<form th:fragment="persona-form" method="post" th:action="@{/admin/paises/create}" th:object="${pais}">
 		<div>
 			<label for="nombre">Nombre</label>
 			<input th:field="*{nombre}">
-		</div>	
-		
+		</div>
+
 		<button class="btn btn-success" id="enviar">Enviar</button>
 	</form>
 </body>

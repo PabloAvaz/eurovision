@@ -13,4 +13,5 @@ public interface VotarService {
 	
 	List<PuntosPersonaPais> findAllVotosByPersona(Persona persona);	
 	
+	void guardarVotacion(PuntosPersonaPais puntosPersonaPais);
 }

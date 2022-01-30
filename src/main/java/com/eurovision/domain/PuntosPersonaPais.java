@@ -7,14 +7,18 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "PUNTOS_PERSONA_PAIS")
 @Data
+@NoArgsConstructor
 public class PuntosPersonaPais {
 	
 	@Id
@@ -22,15 +26,21 @@ public class PuntosPersonaPais {
 	@Column(name="PP_VOTO_ID")
 	Integer id;
 	
-	@OneToOne(cascade = CascadeType.ALL)
+	@ManyToOne(cascade = CascadeType.ALL, optional = false)
 	@JoinColumn(name = "PP_PERSONA")
 	Persona persona;
 	
-	@OneToOne
+	@ManyToOne(optional = false)
 	@JoinColumn(name = "PP_PAIS")
 	Pais pais;
 	
 	@Column(name="PP_PUNTOS")
 	Integer puntos;
+
+	public PuntosPersonaPais(Persona persona, Pais pais, Integer puntos) {
+		this.persona = persona;
+		this.pais = pais;
+		this.puntos = puntos;
+	}
 
 }

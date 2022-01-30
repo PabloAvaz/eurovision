@@ -10,11 +10,15 @@
 
     <aside class="menu">
         <nav th:replace="~{fragments/menu-lateral :: menu-lateral}"></nav>
-        <button id="btn">XD</button>
     </aside>
     
     <main>
     	<section>
+    		<div class="cabecera-con-iconos">
+    			<h1>Personas</h1> 
+    			<a class="btn btn-success" th:href="@{/admin/personas/create}"><i class="fa fa-plus"></i></a>
+    		</div>
+
     		<table class="table table-dark table-hover" id="tablaPersonas">
     			<thead>
     				<tr>
@@ -32,15 +36,15 @@
     						<i th:class="*{activa ? 'fa fa-check text-success' : 'fa fa-times text-danger'}"></i>
     					</td>
     					<td>
-  							<a th:href="@{/personas/alternarEstado/{id} (id=*{id})}" class="fa fa-power-off" aria-hidden="true"></a>
-  							<a th:href="@{/votar/{id} (id=*{id})}" class="fa fa-envelope" ></a>
-  							<a th:href="@{/personas/delete/{id} (id=*{id})}" class="fa fa-trash" aria-hidden="true"></a>
+  							<a th:href="@{/admin/personas/alternarEstado/{id} (id=*{id})}" class="fa fa-power-off" aria-hidden="true"></a>
+  							<a th:href="@{/accion/votar/{id} (id=*{id})}" class="fa fa-envelope" ></a>
+  							<a th:href="@{/admin/personas/edit/{id} (id=*{id})}"><i class="fa fa-edit"></i></a>
+  							<a th:href="@{/admin/personas/delete/{id} (id=*{id})}" class="fa fa-trash" aria-hidden="true"></a>
     					</td>
     				</tr>
     			</tbody>
     		</table>
     	</section>
-    	<a th:href="@{/personas/create}">Crear</a>
     </main>
 
     <footer th:replace="~{fragments/footer :: footer}"></footer>

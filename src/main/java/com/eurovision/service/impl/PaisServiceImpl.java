@@ -24,7 +24,12 @@ public class PaisServiceImpl implements PersonaService {
 		return personaRepository.findAll();
 	}
 
-
+	@Override
+	public Persona findById(Integer id) {
+		return personaRepository.findById(id).orElse(null);
+	}
+	
+	
 	@Override
 	public void guardarPersona(Persona persona) {
 		if (personaRepository.findByApodo(persona.getApodo()) == null) {
@@ -48,6 +53,8 @@ public class PaisServiceImpl implements PersonaService {
 	public void deletePersona(Persona persona) {
 		personaRepository.deleteById(persona.getId());
 	}
-	
+
+
+
 
 }
