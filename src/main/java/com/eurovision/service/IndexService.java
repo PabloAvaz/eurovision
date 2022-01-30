@@ -14,4 +14,6 @@ public interface IndexService {
 	public List<Persona> getAllPersonas();
 	
 	public List<Pais> getAllPaises();
+	
+	public Persona findById(Integer id);
 }

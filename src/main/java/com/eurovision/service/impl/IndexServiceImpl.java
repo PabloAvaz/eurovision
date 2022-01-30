@@ -11,6 +11,8 @@ import com.eurovision.domain.Pais;
 import com.eurovision.domain.PaisRepository;
 import com.eurovision.domain.Persona;
 import com.eurovision.domain.PersonaRepository;
+import com.eurovision.domain.PuntosPersonaPais;
+import com.eurovision.domain.PuntosPersonaPaisRepository;
 import com.eurovision.service.IndexService;
 
 import lombok.NoArgsConstructor;
@@ -25,6 +27,9 @@ public class IndexServiceImpl implements IndexService {
 	@Autowired
 	private PaisRepository paisRepository;
 
+	@Autowired
+	private PuntosPersonaPaisRepository puntosPersonaPaisRepository;
+	
 	
 	public void inicializar() {
 		
@@ -48,6 +53,20 @@ public class IndexServiceImpl implements IndexService {
 				.collect(Collectors.toList());
 		
 		paisRepository.saveAll(paises);
+		
+		List<PuntosPersonaPais> votos = Stream.of(
+				new PuntosPersonaPais(personas.get(0), paises.get(0), 10),
+				new PuntosPersonaPais(personas.get(0), paises.get(1), 10),
+				new PuntosPersonaPais(personas.get(0), paises.get(2), 10),
+				new PuntosPersonaPais(personas.get(0), paises.get(3), 10),
+				new PuntosPersonaPais(personas.get(1), paises.get(0), 30),
+				new PuntosPersonaPais(personas.get(1), paises.get(1), 30),
+				new PuntosPersonaPais(personas.get(1), paises.get(2), 30),
+				new PuntosPersonaPais(personas.get(1), paises.get(3), 30)
+				)
+				.collect(Collectors.toList());
+		
+		puntosPersonaPaisRepository.saveAll(votos);
 	}
 	
 	public List<Persona> getAllPersonas()  {
@@ -56,5 +75,10 @@ public class IndexServiceImpl implements IndexService {
 	
 	public List<Pais> getAllPaises()  {
 		return paisRepository.findAll();
+	}
+
+	@Override
+	public Persona findById(Integer id) {
+		return personaRepository.findById(id).orElse(null);
 	}
 }

@@ -13,7 +13,11 @@
     </aside>
     
     <main>
+		<div th:each="voto:${votos}">
 
+			<span th:text="${voto}"></span>
+			
+		</div>
     </main>
     
     <footer th:replace="~{fragments/footer :: footer}"></footer>

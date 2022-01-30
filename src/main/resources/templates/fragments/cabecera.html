@@ -10,6 +10,13 @@
     	<h1>
     		<a th:href="@{/}">Eurovision</a>
     	</h1>
+    	
+    	<form id="formCambioPersona" th:action="@{/cambioPersona}" method="post">
+	    	<select id="personaCombo" name="cambioPersonaId">
+	    		<option th:each="persona:${personasActivas}" th:value="${persona.id}" th:text="${persona.nombre}"></option>
+	    	</select>
+    	</form>
+
     </header>
 </body>
 

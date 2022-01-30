@@ -6,6 +6,11 @@
 <head th:include="~{fragments/head :: head}"></head>
 
 <body>
+	<!-- TODO PVS LOADER
+    	<div class="loader">
+   			<div></div>
+   		</div>
+ 	-->
     <header th:replace="~{fragments/cabecera :: cabecera}"></header>
 
     <aside class="menu">
@@ -14,6 +19,7 @@
     
     <main>
     	<a th:href="@{/inicializar}">Inicializar</a>
+
     	<section>
     		<table class="table table-dark table-hover" id="tablaPersonas">
     			<thead>

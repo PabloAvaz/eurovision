@@ -27,14 +27,13 @@
 		</table>
 		
 		<form method="post" th:action="@{/accion/votar/guardarVoto}" th:object="${votoUsuario}">
-			<label>Persona</label>
-			<input type="number" th:field="*{persona.id}" value="1">
+			<input type="hidden" name="persona.id" th:value="${personaId}">
 			
 			<label>Pais</label>
-			<input type="number" th:field="*{pais.id}" value="1">
+			<input type="number" th:field="*{pais.id}">
 			
 			<label>Puntos</label>
-			<input type="number" th:field="*{puntos}" value="0">
+			<input type="number" th:field="*{puntos}">
 			
 			<button>Enviar</button>
 		</form>

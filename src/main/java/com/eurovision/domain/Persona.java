@@ -34,6 +34,12 @@ public class Persona {
 		this.activa = true;
 	}
 	
+	public Persona(Integer id) {
+		this();
+		this.id = id;
+	}
+	
+	
 	public Persona(String apodo, String nombre) {
 		this();
 		this.apodo = apodo;

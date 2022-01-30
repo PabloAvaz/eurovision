@@ -23,12 +23,15 @@ public class VotarController {
 	
 	@GetMapping("/")
 	public String votar(Model model) {
+		model.addAttribute("votos", votarServiceImpl.obtenerVotosPaisesActivos(new Persona()));
 		return "votar/votar";
 	}
 	
 	@GetMapping("/{id}")
 	public String votar(Persona persona, Model model) {
+		model.addAttribute("personaId", persona.getId());
 		model.addAttribute("votos", votarServiceImpl.findAllVotosByPersona(persona));
+
 		model.addAttribute("votoUsuario", new PuntosPersonaPais());
 		return "votar/votar-detalle";
 	}
@@ -39,4 +42,6 @@ public class VotarController {
 		votarServiceImpl.guardarVotacion(votoUsuario);
 		return "Guardado";
 	}
+	
+
 }
