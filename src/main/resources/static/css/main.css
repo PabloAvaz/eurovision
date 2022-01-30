@@ -1,0 +1,37 @@
+* {
+    box-sizing: border-box;
+    margin:0;
+    padding: 0;
+}
+
+body {
+    display: grid;
+    grid-template-areas: "header header"
+                        "nav main"
+                        "footer footer";
+    grid-template-columns: 10vw 90vw;
+    grid-template-rows: 10vh max(80vh,100%) 10vh;
+}
+
+body.expandido {
+    grid-template-columns: 30vw 70vw;
+}
+
+header {
+    grid-area: header;
+    background-color: lime;
+    display:flex;
+    align-items: center;
+}
+aside {
+    grid-area: nav;
+    background-color: lightskyblue;
+}
+main {
+    grid-area: main;
+    background-color: red;
+}
+footer {
+    grid-area: footer;
+    background-color: purple;
+}

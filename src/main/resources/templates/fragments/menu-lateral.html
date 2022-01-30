@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es" 
+	xmlns="http://www.w3.org/1999/xhtml" 
+    xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+
+<body>
+   <nav th:fragment="menu-lateral">
+	<div class="accordion" id="acordeon-menu-lateral">
+	  <div class="card">
+	    <div class="card-header" id="headingAdmin">
+	      <h2 class="mb-0">
+	        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseAdmin" aria-expanded="true" aria-controls="collapseAdmin">
+	          Administracion
+	        </button>
+	      </h2>
+	    </div>
+	
+	    <div id="collapseAdmin" class="collapse show" aria-labelledby="headingAdmin" data-parent="#acordeon-menu-lateral">
+	      <div class="card-body">
+	        <a th:href="@{/personas/}">Personas</a>
+	      </div>
+	      <div class="card-body">
+	         <a th:href="@{/paises/}">Paises</a>
+	      </div>
+	    </div>
+	  </div>
+	  <!-- FIN ACORDEON 1 -->
+	  <div class="card">
+	    <div class="card-header" id="headingAcciones">
+	      <h2 class="mb-0">
+	        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseAcciones" aria-expanded="false" aria-controls="collapseAcciones">
+	          Acciones
+	        </button>
+	      </h2>
+	    </div>
+	    <!-- FIN ACORDEON 2 -->
+	    <div id="collapseAcciones" class="collapse" aria-labelledby="headingAcciones" data-parent="#acordeon-menu-lateral">
+	      <div class="card-body">
+	         <a th:href="@{/votar/}">Votar</a>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+   </nav>
+</body>
+
+</html>

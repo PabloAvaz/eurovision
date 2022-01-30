@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es" 
+	xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body>
+	<form th:fragment="persona-form" method="post" th:action="@{/personas/create}" th:object="${persona}">
+		<div>
+			<label for="apodo">Apodo</label>
+			<input th:field="*{apodo}">
+		</div>
+		
+		<div>
+			<label for="nombre">Nombre</label>
+			<input th:field="*{nombre}">
+		</div>	
+		
+		<button class="btn btn-success" id="enviar">Enviar</button>
+	</form>
+</body>
+</html>

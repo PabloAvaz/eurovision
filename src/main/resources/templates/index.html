@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es" 
+	xmlns="http://www.w3.org/1999/xhtml" 
+    xmlns:th="http://www.thymeleaf.org">
+    
+<head th:include="~{fragments/head :: head}"></head>
+
+<body>
+    <header th:replace="~{fragments/cabecera :: cabecera}"></header>
+
+    <aside class="menu">
+    	<nav th:replace="~{fragments/menu-lateral :: menu-lateral}"></nav>
+        <button id="btn">XD</button>
+    </aside>
+    
+    <main>
+    	<a th:href="@{/inicializar}">Inicializar</a>
+    	<section>
+    		<table class="table table-dark table-hover" id="tablaPersonas">
+    			<thead>
+    				<tr>
+    				    <th>Apodo</th>
+    					<th>Nombre</th>
+    				</tr>
+    			</thead>
+    			<tbody>
+    				<tr th:each="persona:${personas}">
+    					<td th:text="${persona.apodo}"></td>
+    					<td th:text="${persona.nombre}"></td>
+    				</tr>
+    			</tbody>
+    		</table>
+    	</section>
+    	
+    	<section>
+    	    <table class="table table-dark table-hover" id="tablaPaises">
+    			<thead>
+    				<tr>
+    					<th>Nombre</th>
+    				</tr>
+    			</thead>
+    			<tbody>
+    				<tr th:each="pais:${paises}">
+    					<td th:text="${pais.nombre}"></td>
+    				</tr>
+    			</tbody>
+    		</table>
+    	</section>
+    </main>
+
+    <footer th:replace="~{fragments/footer :: footer}"></footer>
+</body>
+</html>

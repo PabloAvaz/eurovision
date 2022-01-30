@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es" 
+	xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:th="http://www.thymeleaf.org">
+      
+<head th:include="~{fragments/head :: head}"></head>
+
+<body>
+    <header th:replace="~{fragments/cabecera :: cabecera}"></header>
+
+    <aside class="menu">
+    	<nav th:replace="~{fragments/menu-lateral :: menu-lateral}"></nav>
+        <button id="btn">XD</button>
+    </aside>
+    
+    <main>
+
+    </main>
+    
+    <footer th:replace="~{fragments/footer :: footer}"></footer>
+
+</body>
+</html>
