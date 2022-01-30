@@ -46,9 +46,9 @@ public class IndexController extends BaseController {
 	}
 	
 	@PostMapping("/cambioPersona")
-	public String cambioPersona(Integer cambioPersonaId) { 
-		System.out.println("Cambiando a " + cambioPersonaId);
-		//TODO PVS SESION cambiar usuario
+	public String cambioPersona(Integer cambioPersonaId, HttpSession sesion) { //TODO PVS SESION
+		System.out.println("Cambiando de " + sesion.getAttribute("usuario") + " a " + cambioPersonaId);
+		sesion.setAttribute("usuario", indexServiceImpl.findById(cambioPersonaId));
 		return "redirect:/";
 	}
 }

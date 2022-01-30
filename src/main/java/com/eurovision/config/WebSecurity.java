@@ -10,13 +10,20 @@ public class WebSecurity extends WebSecurityConfigurerAdapter  {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
-				.antMatchers("/**", "/personas/**")
-				.permitAll()
-		.anyRequest().authenticated()
-				.and()
-			.formLogin()
-				.loginPage("/login")
-				.permitAll()
+				.antMatchers(
+					"/",
+					"/css/**",
+					"/js/**",
+					//"/login",
+					"/logout"
+					//"/personas/**"
+						
+				).permitAll()
+		//.anyRequest().authenticated()
+				//.and()
+			//.formLogin()
+				//.loginPage("/login")
+				//.permitAll()
 				.and()
 			.logout()
 				.permitAll();

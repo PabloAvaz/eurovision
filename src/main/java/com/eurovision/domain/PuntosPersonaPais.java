@@ -12,7 +12,6 @@ import javax.persistence.Table;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 
 @Entity
 @Table(name = "PUNTOS_PERSONA_PAIS")
@@ -29,7 +28,7 @@ public class PuntosPersonaPais {
 	@JoinColumn(name = "PP_PERSONA")
 	Persona persona;
 	
-	@ManyToOne(optional = false)
+	@ManyToOne(cascade = CascadeType.ALL, optional = false)
 	@JoinColumn(name = "PP_PAIS")
 	Pais pais;
 	
